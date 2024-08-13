@@ -1,0 +1,18 @@
+<body class="flex flex-col items-center">
+  
+  <h1 class="text-[36px] font-serif"><%= @article.title %></h1>
+
+  <p class="text-[24px]"><%= @article.body %></p>
+
+  <% if @article.image.attached? %>
+    <%= image_tag (@article.image), class: "max-w-[800px] max-h-[800px]" %>
+  <% end %>
+
+  <ul>
+    <li><%= link_to "Edit", edit_article_path(@article) %></li>
+    <li><%= link_to "Destroy", article_path(@article), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %></li>
+  </ul>
+<body>
