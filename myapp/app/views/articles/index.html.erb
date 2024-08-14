@@ -4,7 +4,7 @@
 <body class="bg-gray-300 text-[24px]">
   <div class="grid grid-cols-3 grid-flow-row gap-4">
     <% @articles.each_with_index do |article, index| %>
-        <div class="mx-[10px] mt-[10px] <%= 'text-center' if [1, 4, 7].include?(index) %> <%= 'text-right' if [2, 5, 8].include?(index) %>">
+        <div class="mx-[10px] mt-[10px] text-center">
           <%= link_to article, class: "inline-block" do %>
             <% if article.image.attached? %>
               <%= image_tag article.image, class: "rounded-lg max-w-[630px] max-h-[280px]" %>

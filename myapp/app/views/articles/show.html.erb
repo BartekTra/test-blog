@@ -8,11 +8,11 @@
     <%= image_tag (@article.image), class: "max-w-[800px] max-h-[800px]" %>
   <% end %>
 
-  <ul>
-    <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <ul class="flex flex-col h-[80px] space-y-[20px]">
+    <li><%= link_to "Edit", edit_article_path(@article), class: "rounded_button mb-[20px]" %></li>
     <li><%= link_to "Destroy", article_path(@article), data: {
                       turbo_method: :delete,
                       turbo_confirm: "Are you sure?"
-                    } %></li>
+                    }, class: "rounded_button" %></li>
   </ul>
 <body>

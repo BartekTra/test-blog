@@ -37,14 +37,14 @@
   </div>
 
   <%= f.label "Profile Photo" %>
-  <%= f.file_field :profilepicture %><br>
+  <%= f.file_field :profile_picture %><br>
 
   
 
 <% end %>
 
-<% if @user.profilepicture.attached? %>
-  <%= image_tag @user.profilepicture %>
+<% if @user.profile_picture.attached? %>
+  <%= image_tag @user.profile_picture %>
 <% else %>
   <%= image_tag "test.jpg", class: "rounded-lg" %>
 <% end %>
