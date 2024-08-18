@@ -8,11 +8,14 @@ Rails.application.routes.draw do
   Rails.application.routes.draw do
     devise_for :users, controllers: {
     registrations: 'users/registrations'
-    }
+    } 
    
     root "articles#index"
-    resources :articles
-  end
+    
+    resources :articles do
+      resources :comments 
+        end
+    end
   
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     

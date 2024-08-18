@@ -1,0 +1,16 @@
+<div class="outline outline-black outline-1 rounded-lg mt-1">
+    <div class="flex flex-row max-w-[400px]">
+        <div>
+            <p> 
+                <%= image_tag User.find(comment.user_id).profilepicture, class: "rounded-full max-w-[75px] max-h-[75px] py-1 px-1" %>
+            </p>
+        </div>
+        <div class="flex flex-col max-w-full ">
+            <h1 class="max-w-fit"> <%= User.find(comment.user_id).email %> </h1>
+            <p class="max-w-full ">  
+                <strong>Comment: </strong>
+                <p class="w-auto break-words"> <%= comment.body %> </p>
+            </p>
+        </div>
+    </div>
+</div>

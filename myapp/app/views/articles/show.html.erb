@@ -1,18 +1,45 @@
-<body class="flex flex-col items-center">
-  
-  <h1 class="text-[36px] font-serif"><%= @article.title %></h1>
+<body>
+  <main  class="flex flex-col items-start">
+    <!-- ARTICLE TITLE BODY AND IMAGE -->
+    <div class="flex flex-col bg-gray-500 w-full items-center">
+      <h1 class="text-[36px] font-serif"><%= @article.title %></h1>
+    </div>
 
-  <p class="text-[24px]"><%= @article.body %></p>
+    <div class="flex flex-col mx-auto">
+      <div class="flex flex-col w-full ml-">
+        <p class="text-[24px] my-[10px]"><%= @article.body %></p>
+        <% if @article.image.attached? %>
+          <%= image_tag (@article.image), class: "max-w-[400px] max-h-[400px] rounded-lg" %>
+        <% end %>
 
-  <% if @article.image.attached? %>
-    <%= image_tag (@article.image), class: "max-w-[800px] max-h-[800px]" %>
-  <% end %>
+        <!-- RENDERING COMMENT SECTION -->
+        <div>
+          <% if @article.comments.count != 0 %>
+            <h2> Comments: </h2>
+            <%= render @article.comments %>
+          <% end %>
+        </div>
+        <!-- ADD A COMMENT -->
+        <div class="mt-[10px]">
+          <%= form_with model: [ @article, @article.comments.build ] do |form| %>
+            <p>
+              <%= form.label :"Post your reply!" %><br>
+              <%= form.text_area :body, class: "rounded_button" %>
+            </p>
+            <p> <%= form.submit class: "rounded_button my-[10px]" %> </p>
+          <% end %>
+        <div>
 
-  <ul class="flex flex-col h-[80px] space-y-[20px]">
-    <li><%= link_to "Edit", edit_article_path(@article), class: "rounded_button mb-[20px]" %></li>
-    <li><%= link_to "Destroy", article_path(@article), data: {
-                      turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
-                    }, class: "rounded_button" %></li>
-  </ul>
+        <!-- EDIT/DESTROY BUTTONS -->
+        <ul class="flex flex-col h-[80px] space-y-[15px]">
+          <li><%= link_to "Edit", edit_article_path(@article), class: "rounded_button" %></li>
+          <li><%= link_to "Destroy", article_path(@article), data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                          }, class: "rounded_button" %></li>
+        </ul>
+
+      </div>
+    </div>
+  </main>
 <body>

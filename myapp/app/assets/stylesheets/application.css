@@ -14,24 +14,3 @@
  *= require_self
  */
 
- html, body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
- }
-
- .center_all {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
- }
-
- .rounded_button {
-   @apply px-4 py-2 rounded-md bg-gray-200 hover:bg-gray-400 active:bg-gray-600;
- }
-
- .test {
-   @apply field my-[10px] font-sans !important;
-}
-
-.test2 {
-   @apply rounded-md !important;
-}

@@ -1,18 +1,17 @@
-
-<!-- ========== body ================ -->
-
 <body class="bg-gray-300 text-[24px]">
-  <div class="grid grid-cols-3 grid-flow-row gap-4">
+  <div class="">
     <% @articles.each_with_index do |article, index| %>
-        <div class="mx-[10px] mt-[10px] text-center">
-          <%= link_to article, class: "inline-block" do %>
-            <% if article.image.attached? %>
-              <%= image_tag article.image, class: "rounded-lg max-w-[630px] max-h-[280px]" %>
-            <% else %>
-              <%= image_tag "test.jpg", class: "rounded-lg" %>
+        <div class="flex flex-col items-center mx-[10px]">
+          <div class="w-[500px] text-start px-[10px] py-[10px] border border-t-0 border-black	">
+            <%= link_to article, class: "inline-block" do %>
+              <% if article.image.attached? %>
+                <%= image_tag article.image, class: "rounded-lg max-w-[630px] max-h-[280px]" %>
+              <% else %>
+                <%= image_tag "test.jpg", class: "rounded-lg" %>
+              <% end %>
             <% end %>
-          <% end %>
-          <%= link_to article.title, article, class: "block mt-2" %>
+            <%= link_to article.title, article, class: "block mt-2" %>
+          </div>
         </div>
     <% end %>
   </div>
