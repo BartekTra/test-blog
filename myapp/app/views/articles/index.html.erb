@@ -2,7 +2,7 @@
   <div class="">
     <% @articles.each_with_index do |article, index| %>
         <div class="flex flex-col items-center mx-[10px]">
-          <div class="w-[500px] text-start px-[10px] py-[10px] border border-t-0 border-black	">
+          <div class="w-[600px] text-start px-[10px] py-[10px] border border-t-0 border-black	">
             <%= link_to article, class: "inline-block" do %>
               <% if article.image.attached? %>
                 <%= image_tag article.image, class: "rounded-lg max-w-[630px] max-h-[280px]" %>

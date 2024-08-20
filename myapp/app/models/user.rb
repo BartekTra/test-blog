@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_one_attached :profilepicture
   after_commit :add_default_cover, on: [:create, :update]
+  validates :email, presence: true
 
   private 
     def add_default_cover
