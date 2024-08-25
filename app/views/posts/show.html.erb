@@ -1,0 +1,33 @@
+<body>
+  <main  class="flex flex-col items-start">
+    <!-- ARTICLE TITLE BODY AND IMAGE -->
+    <div class="flex flex-col bg-gray-500 w-full items-center">
+      <h1 class="text-[36px] font-serif"><%= @post.title %></h1>
+    </div>
+    <div class="flex flex-col mx-auto">
+      <div class="flex flex-col w-full ml-">
+        <p class="text-[24px] my-[10px]"><%= @post.body %></p>
+        <% if @post.post_image.attached? %>
+          <%= image_tag (@post.post_image), class: "max-w-[400px] max-h-[400px] rounded-lg" %>
+        <% end %>
+        <!-- RENDERING COMMENT SECTION -->
+        <div>
+          <% if @post.comments.count != 0 %>
+            <h2> Comments: </h2>
+            <%= render @post.comments %>
+          <% end %>
+        </div>
+        <!-- ADD A COMMENT -->
+        <div class="mt-[10px]">
+          <%= form_with model: [ @post, @post.comments.build ] do |form| %>
+            <p>
+              <%= form.label :"Post your reply!" %><br>
+              <%= form.text_area :body, class: "rounded_button" %>
+            </p>
+            <p> <%= form.submit class: "rounded_button my-[10px]" %> </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
