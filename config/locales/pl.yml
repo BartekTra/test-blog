@@ -1,0 +1,32 @@
+pl:
+  
+  newpost: "Nowy post"
+  homepage: "Strona główna"
+  logout: "Wyloguj się"
+  profile: "Profil"
+  
+  comments: "Komentarze"
+  comment: "Komentarz:"
+  newcomment: "Napisz coś ciekawego!"
+  createcomment: "Utwórz komentarz"
+
+  signin: "Zaloguj Się"
+  signup: "Rejestracja!"
+
+  title: "Tytuł"
+  body: "Tekst"
+  createpost: "Utwórz post"
+  postpic: "Dodaj miniaturkę"
+
+  edit_user: "Edytuj Profil"
+  password: "Hasło"
+  password_notification: "(pozostaw puste, jeśli nie chcesz go zmieniać)"
+  password_requirement: "znaków minimum"
+  password_confirm: "Potwierdzenie hasła"
+  current_password: "Obecne hasło"
+  current_password_notification: "(potrzebujemy twojego obecnego hasła, aby potwierdzić zmiany)"
+  profile_pic: "Zdjęcie profilowe"
+  update: "Zaktualizuj"
+  unhappy?: "Niezadowolony?"
+  cancel_account: "Anuluj moje konto"
+  back: "Wstecz"

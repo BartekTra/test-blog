@@ -28,4 +28,33 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  newpost: "New Post"
+  homepage: "Home"
+  logout: "Log Out"
+  profile: "Profile"
+
+  comments: "Comments"
+  comment: "Comment:"
+  newcomment: "Write something interesting!"
+  createcomment: "Create Comment"
+
+  signin: "Sign In"
+  signup: "Sign Up!"
+
+  title: "Title"
+  body: "Text"
+  createpost: "Create Post"
+  postpic: "Add Thumbnail"
+
+  edit_user: "Edit User"
+  password: "Password"
+  password_notification: "(leave blank if you don't want to change it)"
+  password_requirement: "characters minimum"
+  password_confirm: "Password Confirmation"
+  current_password: "Current Password"
+  current_password_notification: "(we need your current password to confirm your changes)"
+  profile_pic: "Profile picture"
+  update: "Update"
+  unhappy?: "Unhappy?"
+  cancel_account: "Cancel my account"
+  back: "Back"
