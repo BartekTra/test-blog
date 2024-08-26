@@ -15,5 +15,4 @@ class User < ApplicationRecord
       self.user_prof_pic.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.jpg")), filename: "default.jpg", content_type: "image/jpg")
     end
   end
-
 end

@@ -13,7 +13,7 @@
         <!-- RENDERING COMMENT SECTION -->
         <div>
           <% if @post.comments.count != 0 %>
-            <h2> Comments: </h2>
+            <h2> <%= t('comments') %> </h2>
             <%= render @post.comments %>
           <% end %>
         </div>
@@ -21,10 +21,10 @@
         <div class="mt-[10px]">
           <%= form_with model: [ @post, @post.comments.build ] do |form| %>
             <p>
-              <%= form.label :"Post your reply!" %><br>
+              <%= form.label t('newcomment') %> <br>
               <%= form.text_area :body, class: "rounded_button" %>
             </p>
-            <p> <%= form.submit class: "rounded_button my-[10px]" %> </p>
+            <p> <%= form.submit t('createcomment'),class: "rounded_button my-[10px]" %> </p>
           <% end %>
         </div>
       </div>

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-    root "posts#homepage"
+    root "posts#index"
 
-    devise_for :users, controllers: { registrations: 'users/registrations' }
+    devise_for :users, controllers: { registrations: "users/registrations" }
 
-    resources :posts do
-      resources :comments
+    scope "(:locale)", locale: /en|pl/ do
+      resources :posts do
+        resources :comments
+      end
     end
 
 
