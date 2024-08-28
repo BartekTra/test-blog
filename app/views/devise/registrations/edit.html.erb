@@ -1,42 +1,50 @@
-<div class="prose mx-auto" >
-  <h2><%= t('edit_user') %></h2>
-  <% if current_user.user_prof_pic.attached? %>
-    <%= image_tag current_user.user_prof_pic, class: "rounded-lg max-w-[225px] max-h-[225px]" %>
-  <% end %>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded-md" %>
-    </div>
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+<div class="flex flex-col items-center" >
+  <div class="space-y-[10px] border border-y-0 border-[rgb(44,44,44)] h-screen p-[10px]">
+    <h2><%= t('edit_user') %></h2>
+    <%= image_tag current_user.user_prof_pic, class: "rounded-full outline outline-1 outline-[rgb(44,44,44)] max-w-[225px] max-h-[225px]" %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="space-y-[10px]">
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded_field" %>
+        </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+        <div class="field">
+          <%= f.label t('password') %> <i><%= t('password_notification') %></i><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "rounded_field" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> <%= t('password_requirement')%></em>
+          <% end %>
+        </div>
+        <div class="field">
+          <%= f.label t('password_confirm') %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded_field" %>
+        </div>
+        <div class="field">
+          <%= f.label t('current_password') %> <i><%=t('current_password_notification')%></i><br />
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "rounded_field" %>
+        </div>
+        <div class="field">
+          <%= f.label t('profile_pic') %>
+          <%= f.file_field :user_prof_pic, class: "mt-[5px] rounded-sm" %><br>
+        </div>
+        <div class="actions">
+          <%= f.submit t('update') ,class: "rounded_button" %>
+        </div>
+      </div>
     <% end %>
-    <div class="field">
-      <%= f.label t('password') %> <i><%= t('password_notification') %></i><br />
-      <%= f.password_field :password, autocomplete: "new-password", class: "rounded-md" %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> <%= t('password_requirement')%></em>
-      <% end %>
+    <div class="flex flex-row">
+      <div>
+        <p> <%= t('unhappy?')%> </p>
+        <div class="flex flex-row">
+          <p> <%= button_to t('cancel_account'), registration_path(resource_name),class: "rounded_button", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %> </p>
+          <p> <%= link_to t('back'), :back, class: "rounded_button" %></p>
+        </div>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label t('password_confirm') %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded-md" %>
-    </div>
-    <div class="field">
-      <%= f.label t('current_password') %> <i><%=t('current_password_notification')%></i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password", class: "rounded-md" %>
-    </div>
-    <div class="field">
-      <%= f.label t('profile_pic') %>
-      <%= f.file_field :user_prof_pic, class: "mt-[5px] rounded-sm" %><br>
-    </div>
-    <div class="actions">
-      <%= f.submit t('update') ,class: "rounded_button" %>
-    </div>
-  <% end %>
-  <h3><%= t('cancel_account')%></h3>
-  <div><%= t('unhappy?')%> <%= button_to t('cancel_account'), registration_path(resource_name),class: "rounded_button", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-  <%= link_to t('back'), :back %>
+  </div>
 </div>

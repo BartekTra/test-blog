@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "/graphql", to: "graphql#execute"
     root "posts#index"
 
     devise_for :users, controllers: { registrations: "users/registrations" }

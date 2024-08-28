@@ -76,3 +76,6 @@ gem "faker"
 gem "image_processing", "~> 1.13"
 
 gem "grape", "~> 2.1"
+
+gem "graphql", "~> 2.3"
+gem "graphiql-rails", group: :development
