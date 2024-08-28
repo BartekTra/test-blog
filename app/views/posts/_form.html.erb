@@ -1,15 +1,15 @@
 <%= form_with model: post do |f| %>
-  <div class="prose mx-auto">
+  <div class="text-gray-300">
     <div>
       <%= f.label t('title') %><br>
-      <%= f.text_field :title, class: "rounded_button" %>
+      <%= f.text_field :title, class: "rounded_field" %>
     </div>
     <div>
       <%= f.label t('body') %><br>
-      <%= f.text_area :body, class: "rounded_button" %><br>
+      <%= f.text_area :body, class: "rounded_field" %><br>
     </div>
     <div>
-      <%= f.submit t('createpost'), class: "rounded_button" %>
+      <%= f.submit class: "rounded_button" %>
     </div>
   </div>
   <%= f.label t('postpic') %>

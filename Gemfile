@@ -74,3 +74,5 @@ gem "devise", "~> 4.9"
 gem "faker"
 
 gem "image_processing", "~> 1.13"
+
+gem "grape", "~> 2.1"

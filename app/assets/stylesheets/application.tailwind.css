@@ -13,5 +13,10 @@
 */
 
 .rounded_button {
-  @apply px-4 py-2 rounded-md bg-gray-200 hover:bg-gray-400 active:bg-gray-600;
+  @apply px-4 py-2 rounded-md bg-sky-400 hover:bg-sky-500 active:bg-sky-600
 }
+
+.rounded_field {
+  @apply px-4 py-2 rounded-lg bg-[rgb(10,10,10)] hover:bg-[rgb(14,14,14)] active:bg-[rgb(18,18,18)]
+}
+
