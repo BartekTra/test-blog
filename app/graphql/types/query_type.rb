@@ -10,8 +10,8 @@ module Types
       context.schema.object_from_id(id, context)
     end
 
-    field :nodes, [Types::NodeType, null: true], null: true, description: "Fetches a list of objects given a list of IDs." do
-      argument :ids, [ID], required: true, description: "IDs of the objects."
+    field :nodes, [ Types::NodeType, null: true ], null: true, description: "Fetches a list of objects given a list of IDs." do
+      argument :ids, [ ID ], required: true, description: "IDs of the objects."
     end
 
     def nodes(ids:)
@@ -27,8 +27,7 @@ module Types
     def test_field
       "Hello World!"
     end
-
-    field :posts, [ Types::PostType ], null: true, description: "Returns every post from the database"
+    field :posts, [ Types::PostType ], null: true, description: "Fetches all the posts"
     def posts
       Post.all
     end
