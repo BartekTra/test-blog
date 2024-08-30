@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html class="bg-black text-white">
+<html class="text-white bg-black">
+  
   <!-- ========== HEAD ========== -->
-  <%= render 'layouts/head' %>
+  <%= render 'layouts/config' %>
   <!-- ========== END HEAD ========== -->
-
+  
   <!-- ========== HEADER ========== -->
-  <%= render 'navbar/navbar_main_header' %>
+  <%= render 'layouts/navbar' %>
   <!-- ========== END HEADER ========== -->
-
+  
   <%= yield %>
 </html>

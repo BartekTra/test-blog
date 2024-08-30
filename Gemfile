@@ -56,6 +56,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "graphiql-rails"
 end
 
 group :test do
@@ -78,4 +79,3 @@ gem "image_processing", "~> 1.13"
 gem "grape", "~> 2.1"
 
 gem "graphql", "~> 2.3"
-gem "graphiql-rails", group: :development

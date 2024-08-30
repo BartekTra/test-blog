@@ -13,7 +13,9 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
     def post_image_url
-      Rails.application.routes.url_helpers.rails_blob_url(object.post_image, only_path: true) if object.post_image.attached?
+      if object.post_image.attached?
+        Rails.application.routes.url_helpers.rails_blob_url(object.post_image, only_path: true)
+      end
     end
   end
 end
