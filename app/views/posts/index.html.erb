@@ -1,16 +1,23 @@
-<body class="bg-gray-300 text-[24px]">
+<body class="text-[24px]">
   <div>
     <% @posts.each do |post| %>
       <div class="flex flex-col items-center mx-[10px]">
-        <div class="w-[600px] text-start px-[10px] py-[10px] border border-t-0 border-black">
-          <%= link_to post, class: "inline-block " do %>
-            <% if post.post_image.attached? %>
-              <%= image_tag post.post_image, class: "rounded-lg max-w-[630px] max-h-[280px]" %>
-            <% else %>
-              <%= image_tag 'default.jpg', class: 'rounded-lg ' %>
+        <div class="flex flex-row w-[600px] text-start px-[10px] py-[10px] border border-t-0 border-[rgb(44,44,44)]">
+          <div>
+            <%= image_tag User.find(post.user_id).user_prof_pic, class: "w-[75px] h--[75px] rounded-full" %>
+          </div>
+          <div class="flex flex-col items-start text-[16px]">
+            <b> <%= User.find(post.user_id).email %> </b>
+            <%= link_to post.title, post %>
+            <%= link_to post, class: "inline-block " do %>
+              <% if post.post_image.attached? %>
+                <%= image_tag post.post_image, class: "rounded-lg mt-[5px] max-w-[580px] max-h-[280px]" %>
+              <% else %>
+                <%= image_tag 'default.jpg', class: 'rounded-lg ' %>
+              <% end %>
             <% end %>
-          <% end %>
-          <%= link_to post.title, post %>
+            
+          </div>
         </div>
       </div>
     <% end %>

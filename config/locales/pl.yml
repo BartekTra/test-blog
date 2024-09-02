@@ -5,7 +5,7 @@ pl:
   logout: "Wyloguj się"
   profile: "Profil"
   
-  comments: "Komentarze"
+  
   comment: "Komentarz:"
   newcomment: "Napisz coś ciekawego!"
   createcomment: "Utwórz komentarz"

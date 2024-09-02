@@ -1,15 +1,17 @@
-<div class="outline outline-0 outline-black px-[10px] py-[10px] border border-t-0 border-black">
-  <div class="flex flex-row max-w-[400px]">
-    <div>
+<div class="px-[10px] py-[10px] border-t-[1px] border-[rgb(44,44,44)]">
+  <div class="flex flex-row w-[580px]">
+    <div class="min-w-[75px] pr-[10px]">
       <p>
-        <%= image_tag User.find(comment.user_id).user_prof_pic, class: "rounded-full w-[75px] h-[75px] py-1 px-1" %>
+        <%= image_tag User.find(comment.user_id).user_prof_pic, class: "rounded-full w-[75px] h-[75px] p-1" %>
       </p>
     </div>
-    <div class="flex flex-col max-w-full ">
-      <h1 class="max-w-fit"> <%= User.find(comment.user_id).email %> </h1>
-      <p class="max-w-full ">
-        <strong><%= t('comment') %> </strong>
-        <p class="w-auto break-words"> <%= comment.body %> </p>
+    <div class="flex flex-col text-wrap p-[10px] max-w-[505px]">
+      <h1 class=""> <%= User.find(comment.user_id).email %> </h1>
+      <p class="">
+        <% if comment.comment_image.attached? %>
+          <%= image_tag comment.comment_image %>
+        <% end%>
+        <p class="break-words text-wrap "> <%= comment.body %> </p>
       </p>
     </div>
   </div>

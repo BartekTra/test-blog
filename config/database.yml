@@ -15,7 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: bartek  
   password: 12qwaszx
-  socket: /var/run/mysqld/mysqld.sock
+  host: localhost
 
 development:
   <<: *default
@@ -39,7 +39,8 @@ test:
 #
 # If the connection URL is provided in the special DATABASE_URL environment
 # variable, Rails will automatically merge its configuration values on top of
-# the values provided in this file. Alternatively, you can specify a connection
+# the values provided in this fi
+# le. Alternatively, you can specify a connection
 # URL environment variable explicitly:
 #
 #   production:
@@ -53,3 +54,6 @@ production:
   database: testblog_production
   username: bartek
   password: 12qwaszx
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
+  pool: 10
+  timeout: 5000
