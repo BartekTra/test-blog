@@ -11,12 +11,11 @@
             <%= link_to post.title, post %>
             <%= link_to post, class: "inline-block " do %>
               <% if post.post_image.attached? %>
-                <%= image_tag post.post_image, class: "rounded-lg mt-[5px] max-w-[580px] max-h-[280px]" %>
+                <%= image_tag post.post_image, class: "rounded-lg mt-[5px] w-[600px]" %>
               <% else %>
                 <%= image_tag 'default.jpg', class: 'rounded-lg ' %>
               <% end %>
             <% end %>
-            
           </div>
         </div>
       </div>

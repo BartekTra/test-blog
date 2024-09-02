@@ -13,20 +13,20 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: bartek  
-  password: 12qwaszx
-  host: localhost
+  username: <%= Rails.application.credentials.dig(:default, :database, :username) %>
+  password: <%= Rails.application.credentials.dig(:default, :database, :password) %>
+  host: <%= Rails.application.credentials.dig(:default, :database, :host) %>
 
 development:
   <<: *default
-  database: testblog_development
+  database: <%= Rails.application.credentials.dig(:development, :database, :database) %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: testblog_test
+  database: <%= Rails.application.credentials.dig(:test, :database, :database) %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -51,9 +51,9 @@ test:
 #
 production:
   <<: *default
-  database: testblog_production
-  username: bartek
-  password: 12qwaszx
-  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
+  database: <%= Rails.application.credentials.dig(:production, :database, :database) %>
+  username: <%= Rails.application.credentials.dig(:production, :database, :username) %>
+  password: <%= Rails.application.credentials.dig(:production, :database, :password) %>
+  host: <%= Rails.application.credentials.dig(:production, :database, :host) %>
   pool: 10
   timeout: 5000
