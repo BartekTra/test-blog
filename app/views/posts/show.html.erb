@@ -10,21 +10,22 @@
       <div class="flex flex-col w-[600px]">
         <div class="flex flex-row w-full">
           <!-- Profile pic -->
-          <div class="min-w-[95px] p-[10px] max-h-[100px]">
+          <div class="min-w-[95px] p-[10px]">
             <%= image_tag (User.find(@post.user_id).user_prof_pic), class: "rounded-full w-[75px] h-[75px] outline outline-1 outline-[rgb(44,44,44)]" %>
           </div>
-          <div class="max-w-full p-[10px]">
+          <div>
             <strong class="text-[18px] mt-[10px]"> <%= (User.find(@post.user_id).email) %> </strong>
             <p class="text-[18px] flex flex-col mt-0"> <%= @post.body %> </p>
-            <% if @post.post_image.attached? %>
-              <%= image_tag (@post.post_image), class: "rounded-lg" %>
-            <% end %>
           </div>
+        </div>
+        <div class="max-w-full p-[10px]">
+          <% if @post.post_image.attached? %>
+            <%= image_tag (@post.post_image), class: "rounded-lg w-[600px]" %>
+          <% end %>
         </div>
         <!-- RENDERING COMMENT SECTION -->
         <div class="">
           <% if @post.comments.count != 0 %>
-            <h2> <%= t('comments') %> </h2>
             <%= render @post.comments %>
           <% end %>
         </div>

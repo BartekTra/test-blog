@@ -33,7 +33,7 @@ en:
   logout: "Log Out"
   profile: "Profile"
 
-  comments: "Comments"
+  
   comment: "Comment:"
   newcomment: "Write something interesting!"
   createcomment: "Create Comment"

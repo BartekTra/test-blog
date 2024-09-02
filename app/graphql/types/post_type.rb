@@ -9,6 +9,7 @@ module Types
     field :body, String
     field :user_id, Integer, null: false
     field :post_image_url, String, null: true
+    field :comments, [ Types::CommentType ], null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
