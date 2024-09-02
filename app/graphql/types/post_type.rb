@@ -15,7 +15,7 @@ module Types
 
     def post_image_url
       if object.post_image.attached?
-        Rails.application.routes.url_helpers.rails_blob_url(object.post_image, only_path: true)
+        ("localhost:3000" + Rails.application.routes.url_helpers.rails_blob_url(object.post_image, only_path: true))
       end
     end
   end

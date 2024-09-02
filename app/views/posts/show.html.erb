@@ -8,20 +8,24 @@
     <!-- ARTICLE BODY -->
     <div class="flex flex-col mx-auto border-x-[1px] border-[rgb(44,44,44)]  ">
       <div class="flex flex-col w-[600px]">
-        <div class="flex flex-row w-full">
-          <!-- Profile pic -->
-          <div class="min-w-[95px] p-[10px]">
-            <%= image_tag (User.find(@post.user_id).user_prof_pic), class: "rounded-full w-[75px] h-[75px] outline outline-1 outline-[rgb(44,44,44)]" %>
+        <div class="p-[10px]">
+          <div class="flex flex-row w-full">
+            <!-- Profile pic -->
+            <div class="min-w-[95px]">
+              <%= image_tag (User.find(@post.user_id).user_prof_pic), class: "rounded-full w-[75px] h-[75px] outline outline-1 outline-[rgb(44,44,44)]" %>
+            </div>
+            <div>
+              <strong class="text-[18px] mt-[10px]"> <%= (User.find(@post.user_id).email) %> </strong>
+            </div>
           </div>
           <div>
-            <strong class="text-[18px] mt-[10px]"> <%= (User.find(@post.user_id).email) %> </strong>
             <p class="text-[18px] flex flex-col mt-0"> <%= @post.body %> </p>
           </div>
-        </div>
-        <div class="max-w-full p-[10px]">
-          <% if @post.post_image.attached? %>
-            <%= image_tag (@post.post_image), class: "rounded-lg w-[600px]" %>
-          <% end %>
+          <div class="max-w-full">
+            <% if @post.post_image.attached? %>
+              <%= image_tag (@post.post_image), class: "rounded-lg w-[600px]" %>
+            <% end %>
+          </div>
         </div>
         <!-- RENDERING COMMENT SECTION -->
         <div class="">
