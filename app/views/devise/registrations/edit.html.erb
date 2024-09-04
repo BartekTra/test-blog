@@ -13,6 +13,10 @@
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
         <div class="field">
+          <%= f.label :username %> <br />
+          <%= f.text_field :username, class: "rounded_field" %>
+        </div>
+        <div class="field">
           <%= f.label t('password') %> <i><%= t('password_notification') %></i><br />
           <%= f.password_field :password, autocomplete: "new-password", class: "rounded_field" %>
           <% if @minimum_password_length %>
