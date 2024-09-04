@@ -6,12 +6,13 @@ Rails.application.routes.draw do
       mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
     end
 
-    devise_for :users, controllers: { registrations: "users/registrations" }
+    devise_for :users
 
     scope "(:locale)", locale: /en|pl/ do
       resources :posts do
         resources :comments
       end
+      resources :likes, only: [ :create, :destroy, :delete ]
     end
 
 
