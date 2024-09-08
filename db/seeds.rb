@@ -21,6 +21,11 @@ def comment_image_fetcher
   URI.open(Faker::LoremFlickr.image(size: "320x240", search_terms: [ 'dog', 'paris', 'girl' ]))
 end
 
+User.destroy_all
+Post.destroy_all
+Comment.destroy_all
+Like.destroy_all
+
 (1..20).each do |id|
   first_name = Faker::Name.first_name
   u = User.create!(id: id,

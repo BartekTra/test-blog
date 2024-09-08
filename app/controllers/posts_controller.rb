@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [ :create, :edit, :destroy ]
-
+  before_action :find_post, only: [ :like, :unlike ]
 
   def index
     @posts = Post.all
@@ -47,10 +47,23 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def like
+    @post = Post.find(params[:id])
+    @post.likes.create(user: current_user)
+    redirect_to root_path
+  end
 
+  def unlike
+    @post = Post.find(params[:id])
+    @post.likes.where(user: current_user).destroy_all
+    redirect_to root_path
+  end
 
   private
   def post_params
     params.require(:post).permit(:title, :body, :post_image, :user_id)
+  end
+  def find_post
+    @post = Post.find(params[:id])
   end
 end

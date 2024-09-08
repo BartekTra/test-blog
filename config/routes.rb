@@ -10,9 +10,17 @@ Rails.application.routes.draw do
 
     scope "(:locale)", locale: /en|pl/ do
       resources :posts do
-        resources :comments
+        member do
+          post "like"
+          delete "unlike"
+        end
+        resources :comments do
+          member do
+            post "like"
+            delete "unlike"
+          end
       end
-      resources :likes, only: [ :create, :destroy, :delete ]
+      end
     end
 
 

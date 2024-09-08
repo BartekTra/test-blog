@@ -140,8 +140,6 @@ GEM
       mustermann-grape (~> 1.1.0)
       rack (>= 2)
       zeitwerk
-    graphiql-rails (1.10.1)
-      railties
     graphql (2.3.14)
       base64
       fiber-storage
@@ -366,7 +364,6 @@ DEPENDENCIES
   factory_bot_rails
   faker
   grape (~> 2.1)
-  graphiql-rails
   graphql (~> 2.3)
   image_processing (~> 1.13)
   importmap-rails

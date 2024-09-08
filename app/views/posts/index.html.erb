@@ -17,23 +17,18 @@
                 <%= image_tag post.post_image, class: "rounded-lg mt-[5px] max-w-[493px]" %>
               <% end %>
             <% end %>
+            <% if post.likes.exists?(user: current_user) %>
+              <%= link_to unlike_post_path(post), data: {turbo_method: :delete}  do %>
+                <%= image_tag 'unlike_button.png', class: "max-w-[25px] max-h-[25px]" %>
+              <% end %>
+            <% else %>
+              <%= link_to like_post_path(post), data: {turbo_method: :post} do %>
+                <%= image_tag 'like_button.png', class: "max-w-[25px] max-h-[25px]" %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
-      <% like = current_user.likes.find_by(post: post) %>
-      <% if like.nil? %>
-        <form action="/likes" method="post">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
-          <input type="hidden" name="like[post_id]" value="<%= post.id %>">
-          <input type="submit" value="Like">
-        </form>
-      <% else %>
-        <form action="<%= like_path(like) %>" method="post">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Unlike">
-        </form>
-      <%end%>
     <% end %>
   </div>
 </body>
